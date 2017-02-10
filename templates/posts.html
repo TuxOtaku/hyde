@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+    <h2 class="ui header">Post History</h2>
+    <ul>
+{% for post in posts %}
+    <li>
+        <a href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
+            {{ post.title }}
+        </a>
+        <small>{{ post.date }}</small>
+    </li>
+{% endfor %}
+    </ul>
+{% endblock %}
